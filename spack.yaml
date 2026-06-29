@@ -1,0 +1,46 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - vasp+hdf5+openmp ^*/gafrwzb
+  view: view
+  concretizer:
+    unify: true
+  upstreams:
+    gcc152_ec:
+      install_tree: /appl/soft/spack/core/v2026_03/${target_family}/gcc152_ec/install_dir
+  config:
+    install_tree:
+      root: install-root
+      projections:
+        all: '{name}-{version}-{hash:7}'
+    source_cache: source-cache
+  bootstrap:
+    root: /appl/soft/spack/v2026_03/spackconf/config_x86_64/bootstrap
+  packages:
+    gcc:
+      externals:
+      - spec: gcc@15.2.0 languages:='c,c++,fortran'
+        prefix: /appl/soft/spack/core/v2026_03/x86_64/compilers_ec/install_dir/zen5/gcc-14.1.0/gcc-15.2.0-cxeacg
+        extra_attributes:
+          compilers:
+            c: /appl/soft/spack/core/v2026_03/x86_64/compilers_ec/install_dir/zen5/gcc-14.1.0/gcc-15.2.0-cxeacg/bin/gcc
+            cxx: /appl/soft/spack/core/v2026_03/x86_64/compilers_ec/install_dir/zen5/gcc-14.1.0/gcc-15.2.0-cxeacg/bin/g++
+            fortran: /appl/soft/spack/core/v2026_03/x86_64/compilers_ec/install_dir/zen5/gcc-14.1.0/gcc-15.2.0-cxeacg/bin/gfortran
+      - spec: gcc@11.5.0 languages:='c,c++,fortran'
+        prefix: /usr
+        extra_attributes:
+          compilers:
+            c: /usr/bin/gcc
+            cxx: /usr/bin/g++
+            fortran: /usr/bin/gfortran
+    rsync:
+      externals:
+      - spec: rsync@3.2.5
+        prefix: /usr/bin
+  repos:
+    my_repo: spack_repo/my_repo
+    builtin: /appl/soft/spack/v2026_03/spack-packages/repos/spack_repo/builtin

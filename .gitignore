@@ -1,0 +1,12 @@
+*~
+*.tgz
+__pycache__
+view
+install-root
+vasp.*
+vdw_kernel*
+pot*
+._view
+.spack-env
+spack.lock
+	    
