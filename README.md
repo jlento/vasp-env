@@ -30,8 +30,7 @@ Short instructions:
     spack -e . install
     ```
 
-The VASP executables will be installed into `install-root/bin`, and can
-be used directly in the batch scripts the usual way, for example
+The VASP executables can be used directly in the batch scripts, with for example
 
 ```console
 srun /projappl/<project>/vasp-env/view/bin/vasp_std
