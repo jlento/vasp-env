@@ -272,7 +272,7 @@ class Vasp(MakefilePackage, CudaPackage):
             env.set("NVHPC_CUDA_HOME", self.spec["cuda"].prefix)
 
     def build(self, spec, prefix):
-        make("DEPS=1 VERBOSE=1 std")
+        make("DEPS=1, all")
 
     def install(self, spec, prefix):
         install_tree("bin/", prefix.bin)
