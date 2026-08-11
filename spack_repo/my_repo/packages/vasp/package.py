@@ -23,6 +23,7 @@ class Vasp(MakefilePackage, CudaPackage):
     maintainers("snehring")
     manual_download = True
 
+    version("6.6.1", sha256="261f9c1fd730468106191afeb185821d67cb7a58c982f6e063824dd5432106b0")
     version("6.6.0", sha256="9566f59b0ae2fc60f670a91153655d09dba13fe6cc6c54e9ca6bd03bbcd86384")
     version("6.5.1", sha256="a53fd9dd2a66472a4aa30074dbda44634fc663ea2628377fc01d870e37136f61")
     version("6.5.0", sha256="7836f0fd2387a6768be578f1177e795dc625f36f19015e31cab0e81154a24196")

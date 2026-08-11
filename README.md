@@ -13,11 +13,11 @@ Short instructions:
     ```
 
     This repository contains spack environment definition file, and an updated
-    package file that supports vasp version 6.6.0 and gcc version 15.2.0.
+    package file that supports vasp version 6.6.1 and gcc version 15.2.0.
 
-3.  Get the the vasp 6.6.0 source and pseudopotential tarballs from
+3.  Get the the vasp 6.6.1 source and pseudopotential tarballs from
     [VASP Portal](https://vasp.at) (only Primary contact person or the License
-    signatory can do this?), and place them in into `vasp-env` directory.
+    signatory can do this), and place them in into `vasp-env` directory.
 
 4. Install vasp with
 
