@@ -30,6 +30,10 @@ Short instructions:
     spack -e . install
     ```
 
+    If Spack complains about mismatching checksum, you can add option `--no-checksum`
+    to the above `spack -e .install` command, if you are sure the vasp source is from
+    trusted source [VASP Portal](https://vasp.at) .
+
 The VASP executables can be used directly in the batch scripts, with for example
 
 ```console
