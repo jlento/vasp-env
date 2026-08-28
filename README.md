@@ -34,7 +34,7 @@ Short instructions:
     export SPACK_DISABLE_LOCAL_CONFIG=true
     source /appl/soft/spack/v2026_03/spack/share/spack/setup-env.sh
 
-    cd spack-env
+    cd vasp-env
     spack -e . install
     ```
 
