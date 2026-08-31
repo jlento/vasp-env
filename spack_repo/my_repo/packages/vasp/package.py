@@ -28,9 +28,12 @@ class Vasp(MakefilePackage, CudaPackage):
     version("6.5.1", sha256="a53fd9dd2a66472a4aa30074dbda44634fc663ea2628377fc01d870e37136f61")
     version("6.5.0", sha256="7836f0fd2387a6768be578f1177e795dc625f36f19015e31cab0e81154a24196")
     version("6.4.3", sha256="fe30e773f2a3e909b5e0baa9654032dfbdeff7ec157bc348cee7681a7b6c24f4")
+    version("6.4.2", sha256="b704637f7384673f91adfbc803edc5cc7fe736d9623453461f7cdc29b123410e")
     version("6.3.2", sha256="f7595221b0f9236a324ea8afe170637a578cdd5a837cc7679e7f7812f6edf25a")
     version("6.3.0", sha256="adcf83bdfd98061016baae31616b54329563aa2739573f069dd9df19c2071ad3")
 
+    variant("license", default=False, description="Enable license checking")
+    
     variant("openmp", default=False, description="Enable openmp build")
 
     variant("cuda", default=False, description="Enables running on Nvidia GPUs")
@@ -95,6 +98,15 @@ class Vasp(MakefilePackage, CudaPackage):
         fcl = [spec["mpi"].mpifc]
 
         omp_flag = "-fopenmp"
+
+        if spec.satisfies("+license"):
+            license = os.getenv("LICENSE")
+            revoked_keys_path = os.getenv("REVOKED_KEYS_PATH")
+            if license == None or revoked_keys_path == None:
+                raise InstallError("Please set environment variables LICENSE and REVOKED_KEYS_PATH")
+            else:
+                cpp_options.append(f'-DLICENSE="\\"{license}\\"" -DREVOKED_KEYS_PATH="\\"{revoked_keys_path}\\""')
+                llibs.extend(["-lssl", "-lcrypto"])
 
         if spec.satisfies("+shmem"):
             cpp_options.append("-Duse_shmem")
